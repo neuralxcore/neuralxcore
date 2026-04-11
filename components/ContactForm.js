@@ -2,12 +2,46 @@
 
 import { useState } from "react";
 
+const WEB3FORMS_URL = "https://api.web3forms.com/submit";
+const WEB3FORMS_ACCESS_KEY =
+  process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ||
+  "376945c8-64a9-4c5e-832d-859b8d4b4010";
+
 export default function ContactForm() {
   const [status, setStatus] = useState("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    setStatus("sent");
+  async function handleSubmit(event) {
+    event.preventDefault();
+    setErrorMessage("");
+    setStatus("sending");
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    formData.append("access_key", WEB3FORMS_ACCESS_KEY);
+
+    try {
+      const response = await fetch(WEB3FORMS_URL, {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus("sent");
+        form.reset();
+      } else {
+        setStatus("idle");
+        setErrorMessage(
+          typeof data.message === "string"
+            ? data.message
+            : "Something went wrong. Please try again.",
+        );
+      }
+    } catch {
+      setStatus("idle");
+      setErrorMessage("Network error. Please try again.");
+    }
   }
 
   if (status === "sent") {
@@ -25,11 +59,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex flex-col gap-6"
-      noValidate
-    >
+    <form onSubmit={handleSubmit} className="flex flex-col gap-6">
       <div className="flex flex-col gap-2">
         <label htmlFor="name" className="text-sm font-medium text-zinc-700">
           Name
@@ -73,10 +103,16 @@ export default function ContactForm() {
       </div>
       <button
         type="submit"
-        className="rounded-full bg-indigo-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-indigo-500"
+        disabled={status === "sending"}
+        className="rounded-full bg-indigo-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-indigo-500 disabled:cursor-not-allowed disabled:opacity-60"
       >
-        Send message
+        {status === "sending" ? "Sending…" : "Send message"}
       </button>
+      {errorMessage ? (
+        <p className="text-sm text-red-600" role="alert">
+          {errorMessage}
+        </p>
+      ) : null}
     </form>
   );
 }
