@@ -6,10 +6,10 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const desktopLinkClass = "text-sm font-semibold text-zinc-900 transition-colors";
-const desktopInactiveClass = "hover:text-indigo-600";
-const desktopActiveClass = "text-indigo-600";
+const desktopInactiveClass = "hover:text-[#2299D4]";
+const desktopActiveClass = "text-[#2299D4]";
 const mobileLinkClass =
-  "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-zinc-900 hover:bg-zinc-50";
+  "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-zinc-900 transition-colors hover:bg-[#2299D4] hover:text-white";
 
 export default function Header() {
   const pathname = usePathname();
@@ -43,7 +43,7 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setIsMenuOpen(true)}
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-zinc-700"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-zinc-700 transition-colors hover:bg-[#2299D4] hover:text-white"
           >
             <span className="sr-only">Open main menu</span>
             <svg
@@ -97,7 +97,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={closeMenu}
-                className="-m-2.5 rounded-md p-2.5 text-zinc-700"
+                className="-m-2.5 rounded-md p-2.5 text-zinc-700 transition-colors hover:bg-[#2299D4] hover:text-white"
               >
                 <span className="sr-only">Close menu</span>
                 <svg

@@ -129,7 +129,7 @@ export default function ImageCarousel({
             <button
               type="button"
               onClick={showPrev}
-              className={`absolute left-2 top-1/2 z-20 flex -translate-y-1/2 items-center justify-center rounded-full border border-zinc-200 bg-white/95 text-zinc-700 shadow-sm backdrop-blur-sm transition-colors hover:bg-white hover:text-zinc-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 sm:left-3 ${
+              className={`absolute left-2 top-1/2 z-20 flex -translate-y-1/2 items-center justify-center rounded-full border border-zinc-200 bg-white/95 text-zinc-700 shadow-sm backdrop-blur-sm transition-colors hover:border-[#2299D4] hover:bg-[#2299D4] hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2299D4] sm:left-3 ${
                 isHero ? "h-11 w-11 sm:h-12 sm:w-12" : "h-10 w-10"
               }`}
               aria-label="Previous slide"
@@ -139,7 +139,7 @@ export default function ImageCarousel({
             <button
               type="button"
               onClick={showNext}
-              className={`absolute right-2 top-1/2 z-20 flex -translate-y-1/2 items-center justify-center rounded-full border border-zinc-200 bg-white/95 text-zinc-700 shadow-sm backdrop-blur-sm transition-colors hover:bg-white hover:text-zinc-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 sm:right-3 ${
+              className={`absolute right-2 top-1/2 z-20 flex -translate-y-1/2 items-center justify-center rounded-full border border-zinc-200 bg-white/95 text-zinc-700 shadow-sm backdrop-blur-sm transition-colors hover:border-[#2299D4] hover:bg-[#2299D4] hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2299D4] sm:right-3 ${
                 isHero ? "h-11 w-11 sm:h-12 sm:w-12" : "h-10 w-10"
               }`}
               aria-label="Next slide"
@@ -164,10 +164,10 @@ export default function ImageCarousel({
               aria-selected={i === index}
               aria-label={`Go to slide ${i + 1}`}
               onClick={() => goTo(i)}
-              className={`h-2.5 rounded-full transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 ${
+              className={`h-2.5 rounded-full transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2299D4] focus-visible:ring-offset-2 ${
                 i === index
-                  ? "w-8 bg-indigo-600"
-                  : "w-2.5 bg-zinc-300 hover:bg-zinc-400"
+                  ? "w-8 bg-[#2299D4]"
+                  : "w-2.5 bg-zinc-300 hover:bg-[#2299D4]"
               }`}
             />
           ))}

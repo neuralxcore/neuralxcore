@@ -68,7 +68,7 @@ export default function HeroSection({ lines = defaultHeroLines }) {
           <button
             type="button"
             onClick={showPrev}
-            className="absolute left-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-white sm:left-4 sm:h-12 sm:w-12"
+            className="absolute left-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-colors hover:border-[#2299D4] hover:bg-[#2299D4] focus:outline-none focus-visible:ring-2 focus-visible:ring-white sm:left-4 sm:h-12 sm:w-12"
             aria-label="Previous slide"
           >
             <Chevron direction="left" />
@@ -76,7 +76,7 @@ export default function HeroSection({ lines = defaultHeroLines }) {
           <button
             type="button"
             onClick={showNext}
-            className="absolute right-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-white sm:right-4 sm:h-12 sm:w-12"
+            className="absolute right-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-colors hover:border-[#2299D4] hover:bg-[#2299D4] focus:outline-none focus-visible:ring-2 focus-visible:ring-white sm:right-4 sm:h-12 sm:w-12"
             aria-label="Next slide"
           >
             <Chevron direction="right" />
@@ -135,7 +135,7 @@ export default function HeroSection({ lines = defaultHeroLines }) {
                 className={`rounded-full transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-indigo-900 ${
                   i === index
                     ? "h-2.5 w-12 bg-white"
-                    : "h-2.5 w-2.5 bg-white/35 hover:bg-white/55"
+                    : "h-2.5 w-2.5 bg-white/35 hover:bg-[#2299D4]"
                 }`}
               />
             ))}
