@@ -49,7 +49,7 @@ const reasons = [
 function Section({ id, eyebrow, title, children }) {
   return (
     <section id={id} className="scroll-mt-24">
-      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-600">
+      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#2299D4]">
         {eyebrow}
       </p>
       <h2 className="mt-3 text-2xl font-semibold tracking-tight text-zinc-900 sm:text-3xl">
@@ -92,7 +92,7 @@ export default function Home() {
             </ul>
           </Section>
 
-          <Section eyebrow="Why us" title="Why Neuralxcore">
+          <Section eyebrow="Why Us" title="Why Neuralxcore">
             <ul className="grid gap-4 sm:grid-cols-2" role="list">
               {reasons.map((item) => (
                 <li
